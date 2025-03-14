@@ -8,7 +8,7 @@ file(GLOB_RECURSE dirlist LIST_DIRECTORIES true ch*/list* ch*/pr*)
 
 foreach (filldir IN ITEMS ${dirlist})
     file(GLOB_RECURSE flist ${filldir}/*.cpp ${filldir}/*.hpp ${filldir}/*.c)
-    message(${flist})
+    message(STATUS ${flist})
     string(REGEX REPLACE "^.*/" "" dir ${filldir})
     add_executable(${dir} ${flist})
 	set_property(TARGET ${dir} PROPERTY CXX_STANDARD 17)

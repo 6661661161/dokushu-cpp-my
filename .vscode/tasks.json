@@ -1,0 +1,21 @@
+{
+    "tasks": [
+        {
+            "label": "g++ current file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}.exe"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "g++ and run current file",
+            "type": "shell",
+            "command": "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}.exe",
+            "problemMatcher": []
+        }
+    ]
+}
