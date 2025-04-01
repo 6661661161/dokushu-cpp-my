@@ -1,20 +1,32 @@
 {
     "tasks": [
         {
+            "label": "mkdir build",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "${workspaceFolder}${pathSeparator}build",
+                "-p"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "g++ current file",
             "type": "shell",
+            "dependsOn": "mkdir build",
             "command": "g++",
             "args": [
                 "${file}",
                 "-o",
-                "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}.exe"
+                "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}"
             ],
             "problemMatcher": []
         },
         {
             "label": "g++ and run current file",
             "type": "shell",
-            "command": "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}.exe",
+            "dependsOn": "g++ current file",
+            "command": "${fileDirname}${pathSeparator}..${pathSeparator}..${pathSeparator}build${pathSeparator}${fileDirnameBasename}",
             "problemMatcher": []
         }
     ]
